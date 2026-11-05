@@ -120,20 +120,20 @@ Add screenshots to `docs/screenshots/` and list them here: login, dashboard, dis
 ## 13. Testing results
 | # | Test | Expected | Result |
 |---|------|----------|--------|
-| 1 | Login with wrong password | "Wrong username or password" | |
-| 2 | Open /disasters without logging in | Redirect to /login | |
-| 3 | Staff opens Disasters page | No add/delete controls; API returns 403 on POST | |
-| 4 | Add disaster with blank name (Admin) | Rejected by CHECK constraint | |
-| 5 | Add resource with negative quantity | Rejected by CHECK constraint | |
-| 6 | Raise request with the same resource twice | Rejected (primary key); nothing saved (rollback) | |
-| 7 | Allocate more than stock | "Insufficient stock for this resource" | |
-| 8 | Allocate more than requested | "Allocation exceeds the remaining requested quantity" | |
-| 9 | Valid allocation | Stock decreases, request item updated, status becomes Partially Allocated / Allocated | |
-| 10 | Distribute more than allocated | "Distribution exceeds the allocated quantity" | |
-| 11 | Distribute everything allocated | Allocation status becomes Delivered | |
-| 12 | Add field report with severity 9 | Rejected with message | |
-| 13 | Search field reports for "water" | Matching reports listed | |
-| 14 | Delete a disaster that has requests | Rejected by foreign key | |
+| 1 | Login with wrong password | "Wrong username or password" | Pass |
+| 2 | Open /disasters without logging in | Redirect to /login  | Pass|
+| 3 | Staff opens Disasters page | No add/delete controls; API returns 403 on POST | Pass |
+| 4 | Add disaster with blank name (Admin) | Rejected by CHECK constraint | Pass |
+| 5 | Add resource with negative quantity | Rejected by CHECK constraint | Pass |
+| 6 | Raise request with the same resource twice | Rejected (primary key); nothing saved (rollback) | Pass |
+| 7 | Allocate more than stock | "Insufficient stock for this resource" | Pass |
+| 8 | Allocate more than requested | "Allocation exceeds the remaining requested quantity" | Pass |
+| 9 | Valid allocation | Stock decreases, request item updated, status becomes Partially Allocated / Allocated | Pass |
+| 10 | Distribute more than allocated | "Distribution exceeds the allocated quantity" | Pass |
+| 11 | Distribute everything allocated | Allocation status becomes Delivered | Pass |
+| 12 | Add field report with severity 9 | Rejected with message | Pass |
+| 13 | Search field reports for "water" | Matching reports listed | Pass |
+| 14 | Delete a disaster that has requests | Rejected by foreign key | Pass |
 
 Fill the Result column (Pass/Fail with a screenshot) after running each test.
 
