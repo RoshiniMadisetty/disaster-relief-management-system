@@ -146,3 +146,23 @@ Fill the Result column (Pass/Fail with a screenshot) after running each test.
 ## 15. Conclusion and future enhancements
 The system prevents over-allocation at the database level, keeps a full trail from request to delivery, and combines a relational model with a document store where each fits best.
 Future work: relief-centre management screen, map view of disasters, SMS alerts for low stock, vector search over field reports to find similar past incidents, per-centre staff accounts.
+
+### Security Implementation
+
+The Disaster Relief Resource Allocation and Aid Distribution System implements multiple security mechanisms to protect user accounts, application endpoints and database operations.
+
+The security features include:
+
+1. **Password Hashing:** bcrypt is used to hash passwords before storing them in the MySQL database. Passwords are not stored in plain text.
+
+2. **JWT Authentication:** JSON Web Tokens are used to authenticate users and verify their identity when accessing protected API endpoints.
+
+3. **Secure Cookie Handling:** Authentication tokens are stored using HttpOnly cookies. The Secure attribute is enabled in production to ensure cookies are transmitted only over HTTPS.
+
+4. **Role-Based Access Control:** The application supports Admin and Staff roles. Server-side authorization checks restrict access according to the user's role.
+
+5. **SQL Injection Prevention:** Parameterized SQL queries are used to reduce the risk of SQL injection attacks.
+
+6. **Environment Variable Protection:** Database credentials and sensitive configuration values are stored using environment variables instead of being hard-coded into the application.
+
+These security mechanisms help protect sensitive information and prevent unauthorized access to application resources.
