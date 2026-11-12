@@ -9,7 +9,8 @@ export async function POST(req) {
     return Response.json({ error: 'Wrong username or password' }, { status: 401 });
   }
   const token = await signToken({ id: u.User_ID, name: u.Username, role: u.Role });
+  const secure = process.env.NODE_ENV === 'production' ? '; Secure' : '';
   const res = Response.json({ role: u.Role });
-  res.headers.append('Set-Cookie', `token=${token}; HttpOnly; Path=/; Max-Age=28800; SameSite=Lax`);
+  res.headers.append('Set-Cookie', `token=${token}; HttpOnly; Path=/; Max-Age=28800; SameSite=Lax${secure}`);
   return res;
 }
